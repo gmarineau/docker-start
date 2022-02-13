@@ -5,12 +5,13 @@ services:
     image: portainer/portainer-ce
     container_name: portainer
     ports:
-      - "9000:9000"
-      - "8000:8000"
+      - '9000:9000'
+      - '8000:8000'
     volumes:
-      - portainer_data:/data portainer/portainer-ce
+      - portainer:/data portainer/portainer-ce
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
 
 volumes:
-  portainer_data: {}
+  portainer:
+    driver: local
